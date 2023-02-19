@@ -1,20 +1,35 @@
 package com.example.servicevk
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.servicevk.view.ServiceActivity
 
-class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
-    private var serviceList = emptyList<ServiceModel>()
-    class MainViewHolder(view: View) : RecyclerView.ViewHolder(view)
+class MainAdapter(private val onItemClicked: (position: Int) -> Unit) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
+    public var serviceList = emptyList<ServiceModel>()
+    class MainViewHolder(view: View, private val onItemClicked: (position: Int) -> Unit) : RecyclerView.ViewHolder(view), View.OnClickListener  {
+        init {
+            itemView.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            onItemClicked(position)
+
+        }
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val view =  LayoutInflater.from(parent.context).inflate(R.layout.service_icon, parent, false)
-        return MainViewHolder(view)
+
+        return MainViewHolder(view, onItemClicked)
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {

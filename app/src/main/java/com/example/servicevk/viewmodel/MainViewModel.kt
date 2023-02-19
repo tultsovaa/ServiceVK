@@ -1,5 +1,6 @@
 package com.example.servicevk.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,6 +17,11 @@ class MainViewModel: ViewModel() {
         viewModelScope.launch {
             services.value = repo.getServiceInfo()
         }
+    }
+
+
+    fun observeServiceLiveData() : MutableLiveData<Response<ServiceListResponse>> {
+        return services
     }
 
 }
