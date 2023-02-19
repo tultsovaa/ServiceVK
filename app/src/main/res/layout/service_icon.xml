@@ -3,16 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <ImageView
         android:id="@+id/image_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="для иконки" />
+        android:layout_width="70dp"
+        android:layout_height="70dp" />
 
     <TextView
         android:id="@+id/name_icon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="название"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
