@@ -28,11 +28,8 @@ class ServiceActivity: AppCompatActivity() {
         val url: TextView = findViewById(R.id.url)
 
         viewModel.getServices()
-        Toast.makeText(this, "1", Toast.LENGTH_SHORT).show()
         viewModel.services.observe(this) {
-            Toast.makeText(this, "2", Toast.LENGTH_SHORT).show()
             service = viewModel.getService(arguments?.getInt("name")!!.toInt())
-            Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
             title = service.name
             Glide.with(this).load(service.icon_url).into(icon)
             name.text = service.name
