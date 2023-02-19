@@ -1,4 +1,4 @@
-package com.example.servicevk
+package com.example.servicevk.model
 
 data class ServiceListResponse(
     val items: List<ServiceModel>
